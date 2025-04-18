@@ -1,22 +1,12 @@
-// npm is a global command, comes with node
-// Node Package Manager (npm)- A tool used to install, manage, and share packages (aka libraries or modules) for Node.js projects.
+const http = require('http')
 
-// local dependencies - use it only in this particular project
-// npm i <packageName>
+const server = http.createServer((req, res)=>{
+    console.log('Request Event')
+    res.end('Hello World')
+})
 
-// global dependencies - use it in any project
-// npm install -g <packageNae>
-// sudo install -g <packageName> (mac)
+server.listen(5000, ()=>{
+    console.log('Server listening on port: 5000')
+})
 
-// package.json - Stores important info about the project/ package
-// manual approach - create package.json and add properties
-// npm init (step by step, press enter to skip)
-// npm init -y (everything default)
-
-const _ = require('lodash')
-
-const items = [1,[2,[3,[4]]]]
-
-const newItems = _.flattenDeep(items)
-
-console.log(newItems)
+console.log('Last statement')
